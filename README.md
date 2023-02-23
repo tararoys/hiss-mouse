@@ -1,3 +1,5 @@
+[See demo video here](https://youtu.be/wwOJTt-4Gus)
+
 This mouse pointer
 is an attempt
 to create the simplest possible
