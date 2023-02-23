@@ -1,4 +1,4 @@
-from talon import Module, Context, canvas, ctrl, cron, ui, actions, app, imgui
+from talon import Module, Context, canvas, ctrl, cron, ui, actions, app, imgui, settings
 from talon.types import Point2d
 
 
@@ -8,7 +8,17 @@ import time
 mod = Module()
 
 
-always_show_crosshairs = True
+mod.setting(
+    "always_show_crosshairs",
+    type=bool,
+    default=True,
+    desc="Toggles whether the crosshairs are always shown or if the crosshairs are only shown when somebody is actively hissing",
+)
+
+
+always_show_crosshairs = settings.get("user.always_show_crosshairs")
+
+print(always_show_crosshairs)
 
 crosshairs_moving = False
 
