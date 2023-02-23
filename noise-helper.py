@@ -23,8 +23,10 @@ def pop_handler(blah):
 
 def hiss_handler(active):
     if active:
+        actions.user.spiral_start()
         actions.user.crosshairs_move()
     else:
+        actions.user.spiral_stop()
         actions.user.crosshairs_stop()
 
 noise.register("pop", pop_handler)

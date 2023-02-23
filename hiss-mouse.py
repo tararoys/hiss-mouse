@@ -9,7 +9,7 @@ mod = Module()
 
 
 
-
+always_show_crosshairs = False
 
 crosshairs_moving = False
 
@@ -95,11 +95,20 @@ class HissSpiralActions:
         global crosshairs_canvas
 
         cron.cancel(crosshairs_tick_job)
-        crosshairs_canvas.unregister("draw", crosshairs_canvas_draw)
-        crosshairs_canvas.hide()
-        crosshairs_canvas = None
+        if not always_show_crosshairs:
+            crosshairs_canvas.unregister("draw", crosshairs_canvas_draw)
+            crosshairs_canvas.hide()
+            crosshairs_canvas = None
 
-
+    def toggle_always_show_crosshairs():
+        """ Toggles whether the crosshairs are always shown. If set to true then the crosshairs are always shown, otherwise the crosshairs are only shown while hissing is going on."""        
+        global always_show_crosshairs
+        if always_show_crosshairs:
+            always_show_crosshairs = not always_show_crosshairs
+            actions.user.spiral_stop()
+        else:
+            always_show_crosshairs = not always_show_crosshairs
+            actions.user.spiral_start()
 
     def crosshairs_move(): 
         """move the crosshairs in a 'fed-ex truck circling the block' clockwise fashioin"""
