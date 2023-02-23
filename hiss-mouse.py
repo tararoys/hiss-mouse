@@ -9,7 +9,7 @@ mod = Module()
 
 
 
-always_show_crosshairs = False
+always_show_crosshairs = True
 
 crosshairs_moving = False
 
@@ -53,44 +53,49 @@ def crosshairs_canvas_draw(canvas):
     
     paint= canvas.paint
     paint.color = "00ff0088"
-    paint.stroke_width = 6
+    paint.stroke_width = 2
 
     # Draw the north line of the cross hair
     if direction == 'north':
         paint.color = "0000ffff"    
+        paint.stroke_width = 6
     canvas.draw_points(canvas.PointMode.LINES,
         [Point2d(ctrl.mouse_pos()[0], 0),
             Point2d(ctrl.mouse_pos()[0], ctrl.mouse_pos()[1])])
     paint.color = "00ff0088"
+    paint.stroke_width = 2
 
     
     # Draw the east line of the cross hair
     if direction == 'east':
         paint.color = "0000ffff"    
+        paint.stroke_width = 6
     canvas.draw_points(canvas.PointMode.LINES,
         [Point2d(ctrl.mouse_pos()[0], ctrl.mouse_pos()[1]),
             Point2d(ui.screens()[0].rect.width - 1, ctrl.mouse_pos()[1])])
     paint.color = "00ff0088"
-
+    paint.stroke_width = 2
 
     # Draw the south line of the cross hair
     if direction == 'south':
         paint.color = "0000ffff"    
+        paint.stroke_width = 6
     canvas.draw_points(canvas.PointMode.LINES,
         [Point2d(ctrl.mouse_pos()[0], ui.screens()[0].rect.height - 1),
             Point2d(ctrl.mouse_pos()[0], ctrl.mouse_pos()[1])])
     paint.color = "00ff0088"
-
+    paint.stroke_width = 2
 
     
     # Draw the west line of the cross hair
     if direction == 'west':
         paint.color = "0000ffff"    
+        paint.stroke_width = 6
     canvas.draw_points(canvas.PointMode.LINES,
         [Point2d(ctrl.mouse_pos()[0], ctrl.mouse_pos()[1]),
             Point2d(0, ctrl.mouse_pos()[1])])
     paint.color = "00ff0088"
-    
+    paint.stroke_width = 2    
 
 
 
