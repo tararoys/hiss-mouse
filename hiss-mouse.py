@@ -8,7 +8,6 @@ import time
 mod = Module()
 
 
-
 always_show_crosshairs = True
 
 crosshairs_moving = False
@@ -98,14 +97,6 @@ def crosshairs_canvas_draw(canvas):
     paint.stroke_width = 2    
 
 
-
-@imgui.open(y=600)
-def gui(gui: imgui.GUI):
-    global history
-    gui.text(direction)
-    gui.line()
-    gui.text(hissing)
-
 @mod.action_class
 class HissSpiralActions:
     def spiral_start():
@@ -171,13 +162,4 @@ class HissSpiralActions:
         elif direction == "west":
             direction = "north"
         hissing = ""
-
-
-    def crosshairs_history_show():
-        "displaying how long you've been hissing"
-        gui.show()
-
-    def crosshairs_history_hide():
-        "hiding the history"
-        gui.hide()
 
