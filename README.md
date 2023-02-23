@@ -63,6 +63,6 @@ To locate the Talon user directory, you right-click on the Talon icon in the sys
 
 # Known Issues
 
-- This software is 'listening' for a very particular type of siblant hiss.  Keep trying, and this mouse will end up training you in about a day or two to produce exactly the kind of hit it is looking for. Hissing louder Will generally not make it work, so play with the sound of your hiss until you hit exactly thr right siblant. 
+- This software is 'listening' for a very particular type of siblant hiss.  Keep trying, and this mouse will end up training you in about a day or two to produce exactly the kind of hiss it is looking for. Hissing louder Will generally not make it work, so play with the sound of your hiss until you hit exactly thr right siblant. 
 - This will only work on one screen.
 - If you have the hissing noise mapped to any other command, this will probably conflict with whatever mapping you have.
