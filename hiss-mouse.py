@@ -7,8 +7,11 @@ import time
 
 mod = Module()
 
+ctx = Context()
 
-mod.setting(
+
+
+always_show_crosshairs = mod.setting(
     "always_show_crosshairs",
     type=bool,
     default=True,
@@ -16,9 +19,7 @@ mod.setting(
 )
 
 
-always_show_crosshairs = settings.get("user.always_show_crosshairs")
-
-print(always_show_crosshairs)
+print(always_show_crosshairs.get())
 
 crosshairs_moving = False
 
@@ -132,7 +133,8 @@ class HissSpiralActions:
         global crosshairs_canvas
         global always_show_crosshairs
         cron.cancel(crosshairs_tick_job)
-        if not always_show_crosshairs:
+        if not always_show_crosshairs.get():
+            print(always_show_crosshairs.get())
             crosshairs_canvas.unregister("draw", crosshairs_canvas_draw)
             crosshairs_canvas.hide()
             crosshairs_canvas = None
@@ -140,11 +142,11 @@ class HissSpiralActions:
     def toggle_always_show_crosshairs():
         """ Toggles whether the crosshairs are always shown. If set to true then the crosshairs are always shown, otherwise the crosshairs are only shown while hissing is going on."""        
         global always_show_crosshairs
-        if always_show_crosshairs:
-            always_show_crosshairs = not always_show_crosshairs
+        if always_show_crosshairs.get():
+            ctx.settings["user.always_show_crosshairs"] = not always_show_crosshairs.get()
             actions.user.spiral_stop()
         else:
-            always_show_crosshairs = not always_show_crosshairs
+            ctx.settings["user.always_show_crosshairs"] = not always_show_crosshairs.get()
             actions.user.spiral_start()
 
     def crosshairs_move(): 
