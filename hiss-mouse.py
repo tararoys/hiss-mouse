@@ -130,7 +130,7 @@ class HissSpiralActions:
     def spiral_stop():
         """Stops the "spiral" mouse"""
         global crosshairs_canvas
-
+        global always_show_crosshairs
         cron.cancel(crosshairs_tick_job)
         if not always_show_crosshairs:
             crosshairs_canvas.unregister("draw", crosshairs_canvas_draw)

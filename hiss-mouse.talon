@@ -13,7 +13,7 @@ toggle crosshairs:
 open hissing mouse read me: user.open_url("https://github.com/tararoys/hiss-mouse#readme")
 
 settings():
-    ### Set whether the crosshairs are shown all the time or only when you are hissing.
+    ### Set whether the crosshairs ar   e shown all the time or only when you are hissing.
     ### 1 means the crosshairs are shown all the time and 0 means the crosshairs are shown only when hissing
     user.always_show_crosshairs = 1
 
